@@ -5,3 +5,4 @@ terraform.tfstate.*
 
 # Node modules, build artefacts
 node_modules/
+terraform.tfstate*
