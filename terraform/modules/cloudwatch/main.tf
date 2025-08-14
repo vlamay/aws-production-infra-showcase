@@ -21,9 +21,9 @@ resource "aws_cloudwatch_dashboard" "this" {
         "height" : 6,
         "properties" : {
           "metrics" : [
-            [ "AWS/CloudFront", "Requests", "DistributionId", "${var.project_name}-static-site", { "stat": "Sum" } ],
-            [ ".", "4xxErrorRate", "DistributionId", "${var.project_name}-static-site", { "stat": "Average" } ],
-            [ ".", "5xxErrorRate", "DistributionId", "${var.project_name}-static-site", { "stat": "Average" } ]
+            ["AWS/CloudFront", "Requests", "DistributionId", "${var.project_name}-static-site", { "stat" : "Sum" }],
+            [".", "4xxErrorRate", "DistributionId", "${var.project_name}-static-site", { "stat" : "Average" }],
+            [".", "5xxErrorRate", "DistributionId", "${var.project_name}-static-site", { "stat" : "Average" }]
           ],
           "title" : "Static Site Requests & Errors",
           "region" : var.region

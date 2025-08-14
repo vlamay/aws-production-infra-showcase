@@ -42,9 +42,9 @@ module "static_site" {
 // defined below.  Replace schedule_expression or event pattern as
 // needed.
 module "eventbridge" {
-  source       = "./modules/eventbridge"
-  project_name = var.project_name
-  region       = var.region
+  source            = "./modules/eventbridge"
+  project_name      = var.project_name
+  region            = var.region
   state_machine_arn = module.stepfunctions.state_machine_arn
 }
 
@@ -60,9 +60,9 @@ module "stepfunctions" {
 // Observability: CloudWatch dashboards and SLO alarms.  Alerts can
 // optionally send notifications to Slack via SNS and AWS Chatbot.
 module "cloudwatch" {
-  source       = "./modules/cloudwatch"
-  project_name = var.project_name
-  region       = var.region
+  source             = "./modules/cloudwatch"
+  project_name       = var.project_name
+  region             = var.region
   slack_workspace_id = var.slack_workspace_id
   slack_channel_id   = var.slack_channel_id
 }

@@ -9,7 +9,7 @@
  */
 
 resource "aws_iam_role" "sfn_role" {
-  name = "${var.project_name}-sfn-role"
+  name               = "${var.project_name}-sfn-role"
   assume_role_policy = data.aws_iam_policy_document.sfn_assume.json
 }
 
@@ -43,8 +43,8 @@ resource "aws_iam_role_policy_attachment" "attach" {
 }
 
 resource "aws_sfn_state_machine" "this" {
-  name     = "${var.project_name}-state-machine"
-  role_arn = aws_iam_role.sfn_role.arn
+  name       = "${var.project_name}-state-machine"
+  role_arn   = aws_iam_role.sfn_role.arn
   definition = <<EOF
 {
   "Comment": "Sample state machine for the AWS Production Infra Showcase",
