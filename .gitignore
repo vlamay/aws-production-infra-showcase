@@ -1,0 +1,7 @@
+# Terraform state files
+terraform.tfstate
+terraform.tfstate.*
+.terraform/
+
+# Node modules, build artefacts
+node_modules/

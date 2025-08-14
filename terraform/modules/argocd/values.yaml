@@ -1,0 +1,19 @@
+## Argo CD custom values
+# This file provides a minimal override of the default Argo CD
+# configuration.  You can adjust replica counts, enable/disable
+# components and set resource limits here.  See the Argo CD helm
+# chart documentation for the full list of available settings.
+
+configs:
+  cm:
+    application.instanceLabelKey: argocd.argoproj.io/instance
+  params:
+    server.insecure: true
+
+server:
+  # Expose the Argo CD UI via a LoadBalancer service by default.
+  service:
+    type: LoadBalancer
+
+applicationSet:
+  enabled: true

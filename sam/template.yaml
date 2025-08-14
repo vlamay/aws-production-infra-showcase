@@ -1,0 +1,28 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: >-
+  AWS SAM example for the Production Infra Showcase.
+
+Globals:
+  Function:
+    Runtime: python3.12
+    Timeout: 10
+
+Resources:
+  HelloFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: hello_world/
+      Handler: app.lambda_handler
+      Description: A simple hello world function
+      Events:
+        HttpApiEvent:
+          Type: HttpApi
+          Properties:
+            Path: /hello
+            Method: GET
+
+Outputs:
+  HelloFunctionName:
+    Description: Name of the hello world Lambda function
+    Value: !Ref HelloFunction

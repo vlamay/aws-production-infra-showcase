@@ -1,0 +1,20 @@
+## Argo CD install manifest (placeholder)
+#
+# This file is a placeholder for the official Argo CD install
+# manifest.  Replace its contents with the YAML from the Argo CD
+# releases page (https://argo-cd.readthedocs.io/en/stable/getting_started/#1-install-argo-cd)
+# or use `kubectl create -n argocd -f` with the official manifest.
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: argocd
+
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: placeholder
+  namespace: argocd
+data:
+  message: |
+    Replace this file with the official Argo CD install manifest.

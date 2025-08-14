@@ -1,0 +1,1 @@
+This directory contains placeholder Terraform files and a sample state file for demonstration purposes. Replace these with your own Terraform modules and configurations before running `terraform apply`.

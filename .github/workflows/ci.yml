@@ -1,0 +1,39 @@
+name: CI
+
+on:
+  pull_request:
+    branches: [ main ]
+  push:
+    branches: [ main ]
+    paths-ignore:
+      - 'docs/**'
+      - '.github/workflows/pages.yml'
+
+jobs:
+  terraform-fmt-validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: 1.6.0
+      - name: Terraform Format Check
+        run: terraform fmt -check -recursive
+        working-directory: terraform
+      - name: Terraform Validate
+        run: terraform validate
+        working-directory: terraform
+
+  python-lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install dependencies
+        run: pip install black flake8
+      - name: Lint Python files
+        run: |
+          black --check sam/ hello_world/ || true
+          flake8 sam/ hello_world/ || true
